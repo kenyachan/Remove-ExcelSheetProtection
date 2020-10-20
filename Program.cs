@@ -31,6 +31,7 @@ namespace Remove_ExcelSheetProtection
             for(int i = 0; i < sheets.Length; i++) { RemoveProtection(sheets[i]); }
 
             ZipFile.CreateFromDirectory(workbookFolder, $"{fileDirectory}\\{fileName}_noProtection_{fileExtention}");
+            File.Delete(workbookFolder);
         }
 
         static void RemoveProtection(string worksheetPath)
